@@ -1,4 +1,5 @@
 import {UserSignUpRepos , findByEmailId } from '../Repository/UserRepos.js'
+import { generateToken } from '../Utils/JWTutils.js';
 
 
 export const UserSignUpServce = async(req)=>{
@@ -49,7 +50,8 @@ export const UserSignInServce = async(req)=>{
         }
         
         console.log(user);
-        return user;
+        const token = generateToken(user);
+        return {user,token};
     } catch (error) {
         throw{
             message:error.message

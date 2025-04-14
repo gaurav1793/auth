@@ -21,7 +21,8 @@ export const UserSignInController = async(req,res)=>{
         const response =await UserSignInServce(req);
         console.log(response);
         return res.status(201).json({
-            data:response,
+            data:response.user,
+            token:response.token,
             message:"signIN completed"
         })
     } catch (error) {
