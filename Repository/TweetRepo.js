@@ -28,3 +28,11 @@ export const getTweetByIdRepo = async(id)=>{
         throw error;
     }
 }
+export const deleteTweetRepo = async(id)=>{
+    try {
+        const tweet = Tweet.findByIdAndDelete(id);
+        return tweet;
+    } catch (error) {
+        throw error;
+    }
+}
